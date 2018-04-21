@@ -1,0 +1,18 @@
+<lasso-page package-path="./browser.json"/>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Test Page</title>
+    <base href="/"/>
+    <lasso-head/>
+  </head>
+  <body>
+    <!-- <${"app"}/> -->
+    $ var tpl=JSON.stringify(input.tpl)
+    <script>wtpl=${tpl};</script>
+    <${"app"}/>
+    <lasso-body/>
+    <browser-refresh/>
+  </body>
+</html>
