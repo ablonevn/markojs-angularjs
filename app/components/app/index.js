@@ -1,53 +1,55 @@
-
 // var state=require("./appstate").state;
 // var $ = require("jquery");
 // var appHtml=require("./components/app/app.html");
 module.exports = function (app) {
 
+  app.component("title", {
+    template: `{{$ctrl.title}}`,
+    controller: ['global', function (global) {
+      this.title=global.state.title;
+    }]
+  })
+  app.component("app", {
+    template: require("./app.html"),
+    controller: ['global', function (global) {
+      var me = this;
+      // me.login=false;
+      console.log("app start");
+      this.$onInit = () => {
+        me.showNav = global.state.showNav;
+      
+       
+        global.on("change", (state) => {
+          me.login=state.login;
+          // me.username=state.username;
 
-    app.component("app", {
-        template: require("./app.html"),
-        controller: ['global', function (global) {
+          me.showNav = state.showNav;
 
-            // global.title = "xxx";
+        });
+      }
+      // global.title = "xxx";
 
-        }],
-    })
-    
-    
-
-
-    app.component("home", {
-        template: `<h1 ng-click="$ctrl.print()">Home component</h1><br><br><br><br><br><br><br><h2>test</h2>`,
-        // bindings: { $router: '<' },
-        controller: ['$http', function ($http) {
-            var ctrl = this;
-            ctrl.print = function () {
-                var a = ctrl.$route;
-                // debugger;
-                console.log($http);
-
-            }
-
-        }]
-
-
-    });
-    app.component("test", {
-        template: `<h1>Test</h1>`,
-        // bindings: { $router: '<' },
-        controller: ['$http', function ($http) {
-            var ctrl = this;
-            ctrl.print = function () {
-                var a = ctrl.$route;
-                // debugger;
-                console.log($http);
-
-            }
-
-        }]
+    }],
+  })
 
 
-    });
+
+
+  app.component("test", {
+    template: `<h1>Test</h1>`,
+    // bindings: { $router: '<' },
+    controller: ['$http', function ($http) {
+      var ctrl = this;
+      ctrl.print = function () {
+        var a = ctrl.$route;
+        // debugger;
+        console.log($http);
+
+      }
+
+    }]
+
+
+  });
 
 }

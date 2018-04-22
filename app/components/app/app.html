@@ -1,8 +1,8 @@
 <div>
-  <header-bar/>
+  <header-bar ng-if="!$ctrl.login" />
   <div class="app">
 
-    <side-bar/>
+    <side-bar ng-class="{'hideNav':!$ctrl.showNav}" ng-if="!$ctrl.login"/>
     <div class="main">
 
       <ng-view/>

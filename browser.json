@@ -1,8 +1,5 @@
 {
     "dependencies": [
-        "require: ./node_modules/bootstrap/dist/css/bootstrap.css",
-      "./style.scss",
-       
         "require-run: ./app/index.js"
     ]
 }

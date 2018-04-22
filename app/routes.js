@@ -5,8 +5,8 @@ module.exports = function (app) {
         // debugger;
         $routeProvider.when('/', {
             template: '<home/>'
-        }).when('/a', {
-            template: '<test/>'
+        }).when('/login', {
+            template: '<login/>'
         });
     }]);
 }

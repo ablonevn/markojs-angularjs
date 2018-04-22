@@ -1,16 +1,18 @@
 var keystone = require('keystone'),
     Types = keystone.Field.Types;
  
-var User = new keystone.List('User');
+var Contract = new keystone.List('Contract');
  
-User.add({
-    name: { type: Types.Name, required: true, index: true },
-    email: { type: Types.Email, initial: true, required: true, index: true },
-    password: { type: Types.Password, initial: true },
+Contract.add({
+    name: { type: Types.Text, required: true, index: true },
+    createdDate:{ type: Types.Datetime, default: Date.now , required: false, index: true },
     // canAccessKeystone: { type: Boolean, initial: true }
 });
  
-User.register();
+Contract.register();
+// new Contract.model({
+//     name:"contract 1"
+// }).save();
 // var xUser = keystone.list('user');
 // newPost=new xUser.model({
 //     name:"tung",
